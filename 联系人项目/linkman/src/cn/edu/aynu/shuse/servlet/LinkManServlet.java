@@ -258,10 +258,20 @@ public class LinkManServlet extends HttpServlet {
 		// 拿到返回的参数
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		if (username.trim().isEmpty() || password.trim().isEmpty()) {
+			// 返回用户不存在
+			response.getWriter().print("用户名或者密码不能为空");
+			return ;
+		}
+		
+		
 		Users user = service.selectByUserName(username);
 		if (user == null) {
 			// 返回用户不存在
-			response.getWriter().print("用户不存在");
+			response.getWriter().print("用户不存在，请重试");
+			response.setHeader("Refresh",
+					"1;URL=http://localhost:8080/linkman/index.jsp");
+			return;
 		}
 
 		if (user.getPassword().equals(password.trim())) {
@@ -274,6 +284,11 @@ public class LinkManServlet extends HttpServlet {
 			response.getWriter().print("登陆成功，三秒后跳转到功能页面");
 			response.setHeader("Refresh",
 					"3;URL=http://localhost:8080/linkman/jsp/index.jsp");
+		}else {
+			response.getWriter().print("账号或者密码错误，请重新登陆");
+			response.setHeader("Refresh",
+					"1;URL=http://localhost:8080/linkman/index.jsp");
+			return;
 		}
 
 	}
@@ -286,6 +301,12 @@ public class LinkManServlet extends HttpServlet {
 		// 拿到返回的参数
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		if (username.trim().isEmpty() || password.trim().isEmpty()) {
+			// 返回用户不存在
+			response.getWriter().print("用户名或者密码不能为空");
+			return ;
+		}
+		
 		service.add(username, password);
 		// 插入成功就跳转到登陆页面
 		response.getWriter().print("注册成功,三秒后跳转到登陆页面");
