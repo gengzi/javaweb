@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="linkman"
+  id="myeclipse.1479718301127"
+  context-root="/linkman"
+  j2ee-spec="5.0"
+  archive="linkman.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
