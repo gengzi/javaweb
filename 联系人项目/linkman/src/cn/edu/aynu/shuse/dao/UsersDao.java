@@ -11,28 +11,31 @@ import cn.edu.aynu.shuse.bean.Users;
 import cn.edu.aynu.shuse.utils.JDBCUtils;
 
 /**
- * 对User 的数据操作
+ * 对user表的数据操作，两方面{ （1）根据账户名，去查找密码 （2）注册添加用户的信息 }
  * 
  * @author Administrator
  * 
  */
 public class UsersDao {
+	/**
+	 * QueryRunner类简化了执行SQL语句的代码，它与ResultSetHandler组合在一起就能完成大部分的数据库操作，大大减少编码量。
+	 * 针对不同的数据库操作，QueryRunner类提供的不同的方法。
+	 */
 	QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 
 	/**
-	 * 根据账号姓名 去查找 密码
+	 * （1）根据账户名，去查找密码 
 	 * 
 	 * @throws SQLException
 	 */
 	public Users select(String name) throws SQLException {
 		String sql = "select * from user where username=?";
-		Users list = qr.query(sql,
-				new BeanHandler<Users>(Users.class), name);
+		Users list = qr.query(sql, new BeanHandler<Users>(Users.class), name);
 		return list;
 	}
 
 	/**
-	 * 添加数据
+	 * （2）注册添加用户的信息
 	 * 
 	 * @throws SQLException
 	 */
@@ -40,7 +43,7 @@ public class UsersDao {
 
 		String sql = "insert into user(username,password) values(?,?) ";
 		qr.update(sql, name, password);
-		
+
 	}
 
 }

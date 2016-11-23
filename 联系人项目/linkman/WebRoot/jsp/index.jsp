@@ -27,7 +27,6 @@
 
 
 <frameset rows="20%,*">
-<!-- 	<frame name="top" src="<c:url value='/LinkManServlet?method=9&userid=${userid}'/>" /> -->
 	<frame name="top" src="<c:url value='/jsp/top.jsp'/>" />
 	<frame name="body" src="<c:url value='/jsp/welcome.jsp'/>" />
 </frameset>

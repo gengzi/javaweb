@@ -74,7 +74,6 @@ class CharacterRequest extends HttpServletRequestWrapper {
 			try {
 				value = new String(value.getBytes("ISO-8859-1"), "UTF-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

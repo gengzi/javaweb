@@ -1,7 +1,7 @@
 package cn.edu.aynu.shuse.bean;
 
 public class Users {
-	private int id; // 用户的id
+	private int id; // 用户的id，自动增长，作为 linkman 的外键
 	private String username; // 用户的姓名
 	private String password; // 用户的密码
 

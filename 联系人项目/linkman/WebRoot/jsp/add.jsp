@@ -17,7 +17,7 @@
   <body style="text-align: center;">
     <h1>添加联系人</h1>
     <form action="<c:url value='/LinkManServlet'/>" method="post">
-    	<input type="hidden" name="method" value="7">
+    	<input type="hidden" name="method" value="7"> 
     	<input type="hidden" name="userid" value="${userid}">
     	<table border="1" width="50%" align="center">
     		<tr>

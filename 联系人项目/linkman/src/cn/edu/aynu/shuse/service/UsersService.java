@@ -15,6 +15,12 @@ import cn.edu.aynu.shuse.dao.UsersDao;
 public class UsersService {
 	private UsersDao dao = new UsersDao();
 
+	/**
+	 * 注册账号
+	 * 
+	 * @param name
+	 * @param password
+	 */
 	public void add(String name, String password) {
 
 		try {
@@ -24,6 +30,12 @@ public class UsersService {
 		}
 	}
 
+	/**
+	 * 查找账号
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public Users selectByUserName(String name) {
 
 		try {
